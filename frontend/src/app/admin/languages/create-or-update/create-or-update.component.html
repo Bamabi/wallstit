@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+  <form [formGroup]="form" novalidate (submit)="save($event)">
+    <mat-toolbar>
+      <button mat-raised-button color="primary" type="submit" fxFlex="20" fxFlexOffset="80">{{'admin.languages.model.' + action |translate}}</button >
+              </mat-toolbar>
+      <div class="form-content" >
+    <input type="hidden" formControlName="id" />
+    <div fxLayout="column">
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'admin.languages.model.name'|translate}}" [formControl]="form.controls.name">
+        <mat-error *ngIf="form.controls.name.hasError('required')">
+          {{'admin.languages.model.name.required'|translate}}
+        </mat-error>
+      </mat-input-container>
+
+      <mat-select fxFlex="33" placeholder="{{'admin.languages.model.culture'|translate}}" [formControl]="form.controls.culture"
+        required="true">
+        <mat-option *ngFor="let culture of cultures" [value]="culture.code">{{culture.name}}</mat-option>
+        <mat-error *ngIf="form.controls.culture.hasError('required')">
+          {{'admin.languages.model.culture.required'|translate}}
+        </mat-error>
+      </mat-select>
+
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'admin.languages.model.flag'|translate}}" [formControl]="form.controls.flag">
+        <mat-error *ngIf="form.controls.flag.hasError('required')">
+          {{'admin.languages.model.flag.required'|translate}}
+        </mat-error>
+      </mat-input-container>
+    </div>
+  </div>
+</form>
+</div>

@@ -1,0 +1,6 @@
+<mat-toolbar>
+  <h3 [innerHTML]="'admin.languages.new.title'|translate"></h3>
+</mat-toolbar>
+<div class="content-wrapper">
+  <app-create-or-update [language]="language" (languageSubmitted)="onLanguageSubmitted($event)"></app-create-or-update>
+</div>
