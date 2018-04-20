@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminComponent } from './admin.component';
 import { AdminDashboardGuard } from './admin-dashboard-guard';
 import { MatCardModule } from '@angular/material';
+import { PostitsComponent } from '../postits/postits.component';
+import { PostitsService } from '../postits/postits.service';
 
 @NgModule({
   imports: [
@@ -16,8 +18,9 @@ import { MatCardModule } from '@angular/material';
     MatCardModule
   ],
   declarations: [
-    AdminComponent
+    AdminComponent,
+    PostitsComponent
   ],
-  providers: [AdminDashboardGuard]
+  providers: [AdminDashboardGuard, PostitsService]
 })
 export class AdminModule { }

@@ -2,7 +2,14 @@
   <h2> Welcome in Wallstit ! </h2>
 </mat-card>
 
-<div class="animated fadeIn dashboard-container">
+<div fxflexfill fxLayoutGap="10px grid" style="cursor: pointer; height: 100%; margin: 0px -10px -10px 0px; min-height: 100%; min-width: 100%; width: 100%; flex-flow: row wrap; box-sizing: border-box; display: flex;">
+  <div *ngFor="let postit of postits" fxLayoutAlign="space-evenly center" style="margin-right: 0px; flex: 1 1 25%; box-sizing: border-box; padding: 0px 10px 10px 0px; max-width: 25%;">
+    <app-postits [postit]="postit"></app-postits>
+  </div>
+</div>
+
+
+<!-- <div class="animated fadeIn dashboard-container">
     <mat-card class="dashboard-card" *appHasRight="'R_API_USER_R'">
       <img mat-card-image src="/assets/img/dashboard/users.png">
       <mat-card-content>
@@ -24,4 +31,4 @@
         <button mat-button [routerLink]="['/admin/languages']">GO</button>
       </mat-card-actions>
     </mat-card>
-</div>
+</div> -->

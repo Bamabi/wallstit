@@ -7,6 +7,9 @@ import { Right } from './decorators';
 /** Represents the Languages rights */
 @Right('LANGUAGE') export class LanguageRights extends RightsBase { };
 
+/** Represents the Languages rights */
+@Right('POSTIT') export class PostitRights extends RightsBase { };
+
 /** Represents the Languages Resources rights */
 @Right('LANGUAGE_RESOURCE') export class LanguageResourceRights extends RightsBase { };
 
