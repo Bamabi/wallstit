@@ -12,9 +12,11 @@ import { MatDialogModule } from '@angular/material';
 
 import {
   MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatTabsModule,
-  MatSnackBarModule, MatSelectModule, MatSlideToggleModule, MatToolbarModule, MatIconModule
+  MatSnackBarModule, MatSelectModule, MatSlideToggleModule, MatToolbarModule, MatIconModule, MatCardModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
+import { PostitComponent } from './postits/postit.component';
+import { PostitsComponent } from './postits/list/postits.component';
 
 @NgModule({
   imports: [
@@ -37,11 +39,14 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatSelectModule,
     MatSlideToggleModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
   ],
   declarations: [
     KeysPipe,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    PostitComponent,
+    PostitsComponent,
   ],
   exports: [
     CommonModule,
@@ -62,10 +67,15 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatSelectModule,
     MatSlideToggleModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    PostitComponent,
+    PostitsComponent,
   ],
   entryComponents: [
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    PostitComponent,
+    PostitsComponent,
   ]
 })
 export class SharedModule {

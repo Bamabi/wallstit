@@ -15,7 +15,7 @@ import 'rxjs/add/operator/catch';
 import { LanguagesService } from './languages.service';
 import { LanguageModel } from './language-model';
 import { environment } from '../../../environments/environment';
-import { BaseListComponent } from '../../core/base-list-component';
+import { BaseMatListComponent } from '../../core/base-mat-list-component';
 import { ListFormParams } from '../../core/list-form-params';
 
 @Component({
@@ -23,7 +23,7 @@ import { ListFormParams } from '../../core/list-form-params';
   templateUrl: './languages.component.html',
   styleUrls: ['./languages.component.scss']
 })
-export class LanguagesComponent extends BaseListComponent<LanguageModel, ListFormParams> implements OnInit {
+export class LanguagesComponent extends BaseMatListComponent<LanguageModel, ListFormParams> implements OnInit {
 
   /**
    * Initializes a new instance of the LanguagesComponent.

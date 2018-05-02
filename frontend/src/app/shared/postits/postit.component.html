@@ -2,11 +2,13 @@
     <div class="glue"></div>  
     <div class="date">{{ postit.date }}</div>
     <div class="quote" fxflex="60" fxLayout="column" fxLayoutAlign="center">
-      <label>"{{postit.reply ? '-' : ''}} {{ postit.quote }}"</label>
+      <label>"{{postit.reply ? '- ' : ''}}{{ postit.quote }}"</label>
       <label *ngIf="postit.reply">"- {{ postit.reply }}"</label>
       
       <label *ngIf="postit.context">( {{ postit.context }} )</label>
-      
     </div>
-    <div class="author" fxflex="">{{ postit.author }}</div>
+    <div class="author" fxflex="">
+      <label>{{ postit.author }}</label>
+      <label *ngIf="postit.toPerson">{{ 'to.label' | translate }} {{ postit.toPerson }}</label>
+    </div>
 </div>

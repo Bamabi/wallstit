@@ -13,13 +13,11 @@ import { USERS_GUARD_PROVIDERS } from './guards';
 import { UserTranslateResolver } from './user-translate-resolver';
 import { UsernameResolver } from './username-resolver';
 import { UserResolverService } from './user-resolver.service';
-import { MatCardModule } from '@angular/material';
 
 @NgModule({
   imports: [
     SharedModule,
-    UsersRoutingModule,
-    MatCardModule
+    UsersRoutingModule
   ],
   declarations: [
     UsersComponent,

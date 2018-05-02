@@ -14,18 +14,22 @@ const routes: Routes = [
   { path: 'forgotpassword', component: ForgotPasswordComponent },
   { path: 'forbidden', component: ForbiddenComponent },
   {
-    path: 'admin',
+    path: '',
     component: AdminLayoutComponent,
-    canActivate: [AuthorizationGuard],
-    canActivateChild: [AuthorizationChildGuard],
     children: [
       {
-        path: '',
+        path: 'admin',
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationChildGuard],
         loadChildren: './admin/admin.module#AdminModule',
-      }
+      },
+      {
+        path: 'dashboard',
+        loadChildren: './dashboard/dashboard.module#DashboardModule'
+      },
     ]
   },
-  { path: '', redirectTo: 'admin', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

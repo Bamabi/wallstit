@@ -1,0 +1,19 @@
+<mat-card class="overview" fxLayout="column" fxLayoutAlign="center center">
+  <h2> {{ 'welcome.title' | translate }} {{ 'app.title' | translate }} </h2>
+</mat-card>
+<div class="content-wrapper">
+  <mat-toolbar>
+      <mat-input-container floatPlaceholder="never">
+        <input matInput #filter placeholder="{{'admin.postits.search.placeholder'|translate}}">
+      </mat-input-container>
+      <div fxFlex></div>
+  </mat-toolbar>
+</div>
+<div class="animated fadeIn dashboard-container" style="display: flex">
+    <div *ngFor="let postit of data" matSort class="dashboard-postit">
+      <app-postit [postit]="postit"></app-postit>
+    </div>
+</div>
+<mat-paginator #paginator [length]="count" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="pageEvent = onPaginateChange($event)">
+</mat-paginator>

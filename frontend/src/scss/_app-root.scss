@@ -5,7 +5,8 @@
 
 html, body {
   height: 100%;
-  background-color: #eee;
+  /*background-color: #eee;*/
+  background-color: darken(#eee, 40);
 }
 
 #main-container{
@@ -39,7 +40,7 @@ html, body {
 .sk-cube-grid .sk-cube {
   width: 33%;
   height: 33%;
-  background-color: #1590bc;
+  background-color: darken(#FFFFA5, 15);
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
           animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 

@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Http } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthHttp } from 'angular2-jwt';
 
@@ -18,18 +20,24 @@ import { apiTranslateLoaderFactory } from './api-translate-loader';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { TranslateResolver } from './translate-resolver';
 
+// Translate options
+export function translateFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/');
+}
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: apiTranslateLoaderFactory,
-        deps: [Http, StorageService]
+        useFactory: translateFactory,
+        deps: [HttpClient]
       }
     }),
     BrowserAnimationsModule,

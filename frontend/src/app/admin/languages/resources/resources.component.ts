@@ -16,7 +16,7 @@ import { LanguageModel } from '../language-model';
 import { ResourceModel } from '../resource-model';
 import { LanguagesService } from '../languages.service';
 import { environment } from '../../../../environments/environment';
-import { BaseListComponent } from '../../../core/base-list-component';
+import { BaseMatListComponent } from '../../../core/base-mat-list-component';
 import { ListFormParams } from '../../../core/list-form-params';
 import { LanguageResourcesDialogComponent } from './resources-dialog.component';
 
@@ -25,7 +25,7 @@ import { LanguageResourcesDialogComponent } from './resources-dialog.component';
   templateUrl: './resources.component.html',
   styleUrls: ['./resources.component.scss']
 })
-export class ResourcesComponent extends BaseListComponent<ResourceModel, ListFormParams> implements OnInit, OnDestroy {
+export class ResourcesComponent extends BaseMatListComponent<ResourceModel, ListFormParams> implements OnInit, OnDestroy {
 
   /** Gets or sets the language identifier @property {string} */
   languageId: string;

@@ -108,7 +108,7 @@ export class PostitsController {
    * @swagger
    * /api/postits/count:
    *   get:
-   *     description: Returns the list of postits.
+   *     description: Returns the list of postit.
    *     operationId: count
    *     tags:
    *       - Postits
@@ -123,7 +123,7 @@ export class PostitsController {
    *         type: string
    *     responses:
    *       200:
-   *         description: number of postits.
+   *         description: number of postit.
    *         schema:
    *           type: object
    *           properties:
@@ -133,8 +133,9 @@ export class PostitsController {
    *        - jwt_token: [ ]
    */
   @Get('/count')
-  async count(): Promise<{ count: number }> {
-    const count = await this.postitsService.count();
+  async count(@QueryParam('search') search: string): Promise<{ count: number }> {
+    const filter = this.getPostitListFilter(search);
+    const count = await this.postitsService.count(filter);
     return { count: count };
   }
 

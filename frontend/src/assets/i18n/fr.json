@@ -1,0 +1,23 @@
+{
+    "app.title": "Wallstit",
+    "welcome.title": "Bienvenu sur ",
+
+    "menu.dashboard.title": "Dashboard",
+    "menu.admin.title": "Administration",
+    "menu.admin.postit.title": "Postits",
+    "menu.admin.users.title": "Utilisateurs",
+
+    "to.label": "à",
+
+    "admin.postits.search.placeholder" : "Rechercher un postit",
+    "admin.actions" : "Actions",
+    "admin.postit.new" : "Ajouter un postit",
+
+
+    "postit.author.label" : "Auteur",
+    "postit.quote.label" : "Citation",
+    "postit.date.label" : "Date",
+    "postit.toPerson.label" : "A qui ?",
+    "postit.reply.label" : "Réponse",
+    "postit.context.label" : "Contexte"
+}

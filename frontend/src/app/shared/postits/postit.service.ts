@@ -3,8 +3,8 @@ import { Headers, URLSearchParams } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
 
-import { environment } from '../../environments/environment';
-import { ListFilterParams } from '../shared/models/list-filter-params';
+import { environment } from '../../../environments/environment';
+import { ListFilterParams } from '../models/list-filter-params';
 import { PostitModel } from './postit.model';
 
 /**
@@ -65,12 +65,17 @@ export class PostitsService {
   }
 
   /**
-   * Gets the number of postits.
+   * Gets the number of postit.
    * @method
    * @return {Observable<{ count: number }>}
    */
-  allCount() {
-    return this.http.get(`${this.baseUrl}postits/count`).map(response => response.json());
+  allCount(search: string) {
+    const params = new URLSearchParams();
+    if ((search || '') !== '') {
+      params.set('search', search);
+    }
+
+    return this.http.get(`${this.baseUrl}postits/count`, { search: params }).map(response => response.json());
   }
 
   /**

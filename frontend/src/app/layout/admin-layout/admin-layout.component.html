@@ -4,7 +4,7 @@
         <button mat-button class="mat-icon-button" aria-label="Settings" ng-disabled="true" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
-        <h2 flex mat-truncate [routerLink]="['/admin']">Wallstit</h2>
+        <h2 flex mat-truncate [routerLink]="['/dashboard']">{{ 'app.title' | translate }}</h2>
     </mat-toolbar>
     <!-- / Toolbar -->
 
@@ -24,7 +24,7 @@
             </div>
             <!-- / Top bloc -->
             <!-- User parameters menu -->
-            <!-- <mat-menu #menu="matMenu">
+            <!--<mat-menu #menu="matMenu">
                 <button mat-menu-item [routerLink]="['/admin/users/', userModel.id, 'update']">
                     <mat-icon>perm_identity</mat-icon>
                     <span>Modifier le profil</span>
@@ -41,21 +41,22 @@
                     <mat-icon>exit_to_app</mat-icon>
                     <span>Logout</span>
                 </button>
-            </mat-menu> -->
+            </mat-menu>
             <!-- / User parameters menu -->
 
             <!-- Menu -->
             <mat-nav-list class="sidenav-list menu">
-                <mat-list-item [routerLink]="['/admin']" routerLinkActive="active">
-                    <mat-icon mat-list-icon>home</mat-icon>{{'admin.menu.overview' | translate }}
+                <mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active">
+                    <mat-icon mat-list-icon>home</mat-icon>{{'menu.dashboard.title' | translate }}
                 </mat-list-item>
-                <h3 mat-subheader>{{'admin.menu.title' | translate }}</h3>
+                <h3 mat-subheader [routerLink]="['/admin']">{{'menu.admin.title' | translate }}</h3>
+                <mat-list-item [routerLink]="['/admin/postits']" *appHasRight="'R_API_POSTIT_R'" routerLinkActive="active">
+                    <mat-icon mat-list-icon>note</mat-icon>{{'menu.admin.postit.title' | translate }}
+                </mat-list-item>
                 <mat-list-item [routerLink]="['/admin/users']" *appHasRight="'R_API_USER_R'" routerLinkActive="active">
-                    <mat-icon mat-list-icon>people</mat-icon>{{'admin.menu.users' | translate }}
+                    <mat-icon mat-list-icon>people</mat-icon>{{'menu.admin.users.title' | translate }}
                 </mat-list-item>
-                <mat-list-item [routerLink]="['/admin/languages']" *appHasRight="'R_API_LANGUAGE_R'" routerLinkActive="active">
-                    <mat-icon mat-list-icon>flag</mat-icon>{{'admin.menu.languages' | translate }}
-                </mat-list-item>
+
             </mat-nav-list>
             <!-- / Menu -->
 
