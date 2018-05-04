@@ -5,7 +5,7 @@
       <input matInput #filter placeholder="{{'admin.postits.search.placeholder'|translate}}">
     </mat-input-container>
     <div fxFlex></div>
-    <button mat-raised-button color="primary" [routerLink]="['new']" *appHasRight="'R_API_POSTIT_C'">{{'admin.postit.new'|translate}}</button>
+    <button mat-raised-button color="primary" [routerLink]="['new']" *appHasRight="'R_API_POSTIT_C'">{{'admin.postits.new'|translate}}</button>
   </mat-toolbar>
   <div class="form-group no-padding col-mat-12">
   </div>
@@ -27,7 +27,7 @@
 
       <ng-container cdkColumnDef="date">
         <mat-header-cell *cdkHeaderCellDef mat-sort-header><span [innerHTML]="'postit.date.label'|translate"></span></mat-header-cell>
-        <mat-cell *cdkCellDef="let row"> {{row.date | date:'yyyy-MM-dd'}} </mat-cell>
+        <mat-cell *cdkCellDef="let row"> {{row.date | date:'dd/MM/yyyy'}} </mat-cell>
       </ng-container>
 
       <ng-container cdkColumnDef="toPerson">

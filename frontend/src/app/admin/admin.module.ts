@@ -6,7 +6,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SharedModule } from '../shared/shared.module';
 import { AdminComponent } from './admin.component';
 import { AdminDashboardGuard } from './admin-dashboard-guard';
-import { PostitsService } from '../shared/postits/postit.service';
+import { PostitsService } from '../shared/postit/postit.service';
 
 @NgModule({
   imports: [

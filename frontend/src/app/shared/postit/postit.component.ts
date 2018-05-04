@@ -19,6 +19,6 @@ export class PostitComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.postit);
+
   }
 }

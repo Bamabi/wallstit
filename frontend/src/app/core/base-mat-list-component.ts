@@ -180,6 +180,7 @@ export class CustomDataSource<TEntity, TListFormParams extends ListFormParams> e
 
         this.searchFilter.page = 0;
         this.searchFilter.limit = 5;
+        this.searchFilter.sort = (this._sort.active) ? this._sort.active + ':' + this._sort.direction : '';
 
         /*return Observable.merge(...displayDataChanges).map(() => {
             const data = this._component.data.slice();

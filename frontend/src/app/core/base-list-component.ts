@@ -1,8 +1,11 @@
 import { OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import { TranslateService } from '@ngx-translate/core';
-import { ListFormParams } from './list-form-params'
+import { ListFormParams } from './list-form-params';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 import { environment } from '../../environments/environment';
 import { ConfirmModalComponent } from '../shared/confirm-modal/confirm-modal.component';

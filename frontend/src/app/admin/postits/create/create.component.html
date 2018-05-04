@@ -1,0 +1,6 @@
+<mat-toolbar>
+  <h3 [innerHTML]="'admin.postits.new'|translate"></h3>
+</mat-toolbar>
+<div class="content-wrapper">
+  <app-create-or-update [postit]="postit" (postitSubmitted)="onPostitSubmitted($event)"></app-create-or-update>
+</div>

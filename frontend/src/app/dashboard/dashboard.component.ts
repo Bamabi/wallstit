@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { PostitModel } from '../shared/postits/postit.model';
-import { PostitsService, PostitFilter } from '../shared/postits/postit.service';
-import { PostitsComponent } from '../shared/postits/list/postits.component';
+import { PostitModel } from '../shared/postit/postit.model';
+import { PostitsService, PostitFilter } from '../shared/postit/postit.service';
 import { BaseListComponent } from '../core/base-list-component';
 import { ListFormParams } from '../core/list-form-params';
 import { MatDialog } from '@angular/material';

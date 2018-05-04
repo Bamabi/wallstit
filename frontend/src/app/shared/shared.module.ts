@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -8,15 +8,16 @@ import { AuthenticationModule } from '../authentication/authentication.module';
 import { KeysPipe } from './keys.pipe';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatDialogModule } from '@angular/material';
+import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import {
-  MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatTabsModule,
-  MatSnackBarModule, MatSelectModule, MatSlideToggleModule, MatToolbarModule, MatIconModule, MatCardModule
+  MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatButtonModule, MatTabsModule, MatDatepickerModule,
+  MatSnackBarModule, MatSelectModule, MatSlideToggleModule, MatToolbarModule, MatIconModule, MatCardModule, MatDialogModule
 } from '@angular/material';
+
 import { CdkTableModule } from '@angular/cdk/table';
-import { PostitComponent } from './postits/postit.component';
-import { PostitsComponent } from './postits/list/postits.component';
+import { PostitComponent } from './postit/postit.component';
 
 @NgModule({
   imports: [
@@ -41,12 +42,13 @@ import { PostitsComponent } from './postits/list/postits.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
   ],
   declarations: [
     KeysPipe,
     ConfirmModalComponent,
     PostitComponent,
-    PostitsComponent,
   ],
   exports: [
     CommonModule,
@@ -69,20 +71,21 @@ import { PostitsComponent } from './postits/list/postits.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     PostitComponent,
-    PostitsComponent,
   ],
   entryComponents: [
     ConfirmModalComponent,
     PostitComponent,
-    PostitsComponent,
   ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: []
+      providers: [
+      ]
     };
   };
 }

@@ -5,11 +5,17 @@
 
 export const environment = {
   title: 'app.title',
+  version: '0.1',
   production: false,
   apiUrlBase: 'http://localhost:8081/',
   mapsApiKey: 'AIzaSyDwKqTBI--pCduw-6MM6nKDCqsii55beTU',
   page: {
     limit: 5,
     gap: 4
-  }
+  },
+  dateFormat: 'dd/MM/yyyy',
+  language: {
+    key: 'locale',
+    default: 'fr'
+  },
 };

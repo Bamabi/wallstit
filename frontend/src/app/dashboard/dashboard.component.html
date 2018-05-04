@@ -9,7 +9,7 @@
       <div fxFlex></div>
   </mat-toolbar>
 </div>
-<div class="animated fadeIn dashboard-container" style="display: flex">
+<div class="animated fadeIn dashboard-container">
     <div *ngFor="let postit of data" matSort class="dashboard-postit">
       <app-postit [postit]="postit"></app-postit>
     </div>

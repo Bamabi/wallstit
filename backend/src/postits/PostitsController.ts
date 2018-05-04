@@ -173,7 +173,7 @@ export class PostitsController {
   @Post('/')
   @UseBefore(IsLogged, Authorize(Rights.PostitRights.CREATE))
   async create( @Body({ required: true }) data: PostitModel) {
-    return this.postitsService.save(data);
+    return this.postitsService.save({...data, date: new Date(data.date)});
   }
 
   

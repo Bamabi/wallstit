@@ -8,16 +8,28 @@
     "menu.admin.users.title": "Utilisateurs",
 
     "to.label": "à",
+    "common.required.symbole": "*",
+
+    "common.data.delete": "Voulez-vous supprimer cet objet ?",
+    "common.modal.confirm.title": "Confirmation",
+    "common.modal.btn.confirm": "Confirmer",
+    "common.modal.btn.cancel": "Annuler",
 
     "admin.postits.search.placeholder" : "Rechercher un postit",
     "admin.actions" : "Actions",
-    "admin.postit.new" : "Ajouter un postit",
-
+    "admin.actions.edit" : "Editer",
+    "admin.actions.create" : "Créer",
+    "admin.actions.delete" : "Supprimer",
+    "admin.postits.new" : "Ajouter un postit",
+    "admin.postits.edit": "Editer un postit",
 
     "postit.author.label" : "Auteur",
     "postit.quote.label" : "Citation",
     "postit.date.label" : "Date",
     "postit.toPerson.label" : "A qui ?",
     "postit.reply.label" : "Réponse",
-    "postit.context.label" : "Contexte"
+    "postit.context.label" : "Contexte",
+
+    "error.field.required": "Ce champ est obligatoire"
+
 }

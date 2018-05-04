@@ -1,6 +1,6 @@
 <div class="postit" fxLayout="column">
     <div class="glue"></div>  
-    <div class="date">{{ postit.date }}</div>
+    <div class="date">{{ postit.date | date}}</div>
     <div class="quote" fxflex="60" fxLayout="column" fxLayoutAlign="center">
       <label>"{{postit.reply ? '- ' : ''}}{{ postit.quote }}"</label>
       <label *ngIf="postit.reply">"- {{ postit.reply }}"</label>

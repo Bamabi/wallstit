@@ -1,0 +1,6 @@
+<mat-toolbar>
+  <h3 [innerHTML]="'admin.postits.edit'|translate"></h3>
+</mat-toolbar>
+<div class='clearfix' *ngIf="postit">
+  <app-create-or-update [postit]="postit" (postitSubmitted)="onPostitSubmitted($event)"></app-create-or-update>
+</div>

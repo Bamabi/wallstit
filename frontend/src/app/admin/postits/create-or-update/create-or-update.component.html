@@ -1,0 +1,50 @@
+<div class="content-wrapper">
+  <form [formGroup]="form" novalidate (submit)="save($event)">
+    <mat-toolbar>
+      <button mat-raised-button color="primary" type="submit" fxFlex="20" fxFlexOffset="80">{{'admin.actions.' + action |translate}}</button >
+      <button mat-raised-button color="secondary" type="button" fxFlex="20" (click)="debugger()">Debugger</button >
+    </mat-toolbar>
+    <div class="form-content" >
+    <input type="hidden" formControlName="id" />
+    <div fxLayout="column" fxFlex="50">
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'postit.date.label'|translate}} {{'common.required.symbole'|translate}}" [formControl]="form.controls.date" [matDatepicker]="dp">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+        <mat-error *ngIf="form.controls.date.hasError('required')">
+          {{"error.field.required" | translate }}
+        </mat-error>
+      </mat-input-container>
+
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'postit.author.label'|translate}} {{'common.required.symbole'|translate}}" [formControl]="form.controls.author">
+        <mat-error *ngIf="form.controls.author.hasError('required')">
+          {{"error.field.required" | translate }}
+        </mat-error>
+      </mat-input-container>
+
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'postit.quote.label'|translate}} {{'common.required.symbole'|translate}}" [formControl]="form.controls.quote">
+        <mat-error *ngIf="form.controls.quote.hasError('required')">
+          {{"error.field.required" | translate }}
+        </mat-error>
+      </mat-input-container>
+
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'postit.toPerson.label'|translate}}" [formControl]="form.controls.toPerson">
+      </mat-input-container>
+
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'postit.context.label'|translate}}" [formControl]="form.controls.context">
+      </mat-input-container>
+
+      <mat-input-container fxFlex="33">
+        <input matInput placeholder="{{'postit.reply.label'|translate}}" [formControl]="form.controls.reply">
+      </mat-input-container>
+    </div>
+    <div fxLayout="column" fxFlex="50" fxLayoutAlign="center center">
+      <app-postit [postit]="form.value"></app-postit>
+    </div>
+  </div>
+</form>
+</div>

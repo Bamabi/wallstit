@@ -1,4 +1,4 @@
-import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
+import { NgModule, Optional, SkipSelf, ErrorHandler, LOCALE_ID, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -10,6 +10,8 @@ import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthHttp } from 'angular2-jwt';
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
 
 import { environment } from '../../environments/environment';
 import { ModuleImportGuard } from './module-import-guard';
@@ -19,6 +21,7 @@ import { errorHandlerFactory } from './app-error-handler';
 import { apiTranslateLoaderFactory } from './api-translate-loader';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { TranslateResolver } from './translate-resolver';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 // Translate options
 export function translateFactory(http: HttpClient) {
@@ -66,16 +69,32 @@ export function translateFactory(http: HttpClient) {
 })
 export class CoreModule {
 
-  constructor( @Optional() @SkipSelf() parentModule: CoreModule, translate: TranslateService, titleService: Title) {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [
+        {provide: LOCALE_ID, useValue: 'fr-FR'},
+        {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
+      ]
+    };
+  }
+
+  constructor( @Optional() @SkipSelf()
+    parentModule: CoreModule,
+    translateService: TranslateService,
+    titleService: Title,
+    storageService: StorageService
+  ) {
     ModuleImportGuard.throwIfAlreadyLoaded(parentModule, 'CoreModule');
 
-    // set default application language.
-    translate.setDefaultLang('fr');
+    registerLocaleData(localeFr, 'fr');
+    const locale = storageService.getItem<string>(environment.language.key) || environment.language.default;
+    translateService.use(locale);
 
-    // use fr language in application
-    translate.use('fr');
+    // set default application language.
+    // translateService.setDefaultLang('fr');
 
     // set the document title
-    translate.get(environment.title).subscribe((title) => titleService.setTitle(title));
+    translateService.get(environment.title).subscribe((title) => titleService.setTitle(title));
   }
 }

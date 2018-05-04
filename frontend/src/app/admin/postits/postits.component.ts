@@ -8,11 +8,11 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
-import { PostitsService } from './../postit.service';
-import { PostitModel } from './../postit.model';
-import { environment } from '../../../../environments/environment';
-import { BaseMatListComponent } from '../../../core/base-mat-list-component';
-import { ListFormParams } from '../../../core/list-form-params';
+import { PostitsService } from './../../shared/postit/postit.service';
+import { PostitModel } from './../../shared/postit/postit.model';
+import { environment } from '../../../environments/environment';
+import { BaseMatListComponent } from '../../core/base-mat-list-component';
+import { ListFormParams } from '../../core/list-form-params';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -23,7 +23,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 export class PostitsComponent extends BaseMatListComponent<PostitModel, ListFormParams> implements OnInit {
 
   /**
-   * Initializes a new instance of the UsersComponent.
+   * Initializes a new instance of the PostitsComponent.
    * @constructor
    * @param {PostitsService} postitsService The application postits service.
    * @param {FormBuilder} formBuilder The angular form builder.
@@ -42,9 +42,10 @@ export class PostitsComponent extends BaseMatListComponent<PostitModel, ListForm
    * @method
    */
   ngOnInit() {
+    // Init the first sort
+    this.sort.active = 'date';
+    this.sort.direction = 'desc';
     super.ngOnInit();
-    this.dataSource._sort.active = 'date';
-    this.dataSource._sort.direction = 'asc';
   }
 
   /**
